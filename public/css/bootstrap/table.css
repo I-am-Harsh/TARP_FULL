@@ -1,0 +1,14 @@
+table, th, td {
+    padding: 5px;
+}
+
+a{
+    color: rgba(255, 255, 255, 0.6);
+}
+
+
+@media screen and (max-width: 800px) {
+    #button-addon2{
+        width: 100% !important;
+    }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "server for tarp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Harsh Verma",
+  "license": "ISC",
+  "dependencies": {
+    "alert-node": "^2.0.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.7",
+    "mongoose-type-email": "^1.0.11",
+    "morgan": "^1.9.1",
+    "path": "^0.12.7",
+    "popups": "^1.1.3"
+  }
+}
