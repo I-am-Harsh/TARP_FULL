@@ -8,7 +8,12 @@ const alert = require('alert-node');
 const loginRoute = express.Router();
 loginRoute.use(body.json());
 
+global.userId = '';
+var userPass = '';
+var userEmail = '';
 loginRoute.route('/')
+
+
 
 
 // the modified res is passed here
@@ -21,22 +26,19 @@ loginRoute.route('/')
 
 .post((req,res) =>{
 
-    var userEmail = req.body.email;
-    var userPass = req.body.password;
+    userEmail = req.body.email;
+    userPass = req.body.password;
     console.log(req.body);
 
     users.findOne({email : userEmail})
     .then((result) =>{
         res.statusCode = 200;
         res.setHeader('Content-type',"application/json");
+        userId = result.id;
         if(result !== null){
-            // console.log(result.params.password);
         
             if(result.password === userPass){
-                // res.json('This is correct password -- Logging in');
-                // alert("This is correct password -- Logging in");
-                // console.log('matched');
-                return res.redirect("./home");
+                return res.redirect("./home.html");
             }
             else{
                 alert("This is the wrong password")
@@ -52,6 +54,7 @@ loginRoute.route('/')
     
 })
 
+
 .put((req,res) =>{
     res.statusCode = 403;
     res.end(`The ${req.method} was executed.  This operation is not supported.`);
@@ -64,5 +67,6 @@ loginRoute.route('/')
 
 
 
-
+// exports.userEmail = userEmail;
 module.exports = loginRoute;
+

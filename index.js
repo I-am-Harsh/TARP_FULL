@@ -5,6 +5,7 @@ var port = 3000;
 var logger = require('morgan');
 var login = require('./routes/loginRoute');
 var signup = require('./routes/signupRoute');
+var sendCar = require('./routes/sendCarRoute');
 var cookieParser = require('cookie-parser')  
 
 
@@ -32,22 +33,22 @@ mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
 // cookie storing and session id
-app.use(session({
-  key: 'user_sid',
-  secret: 'lmao',
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-      expires: 600000
-  }
-}));
+// app.use(session({
+//   key: 'user_sid',
+//   secret: 'lmao',
+//   resave: false,
+//   saveUninitialized: false,
+//   cookie: {
+//       expires: 600000
+//   }
+// }));
 
-app.use((req, res, next) => {
-  if (req.cookies.user_sid && !req.session.user) {
-      res.clearCookie('user_sid');        
-  }
-  next();
-});
+// app.use((req, res, next) => {
+//   if (req.cookies.user_sid && !req.session.user) {
+//       res.clearCookie('user_sid');        
+//   }
+//   next();
+// });
 
 
 const connect = mongoose.connect(url)
@@ -67,6 +68,7 @@ app.use('/fonts',express.static(__dirname + "/public/fonts"));
 
 app.use('/login',login);
 app.use('/signup',signup);
+app.use('/sendCar',sendCar);
 
 
 app.listen(port, () => {

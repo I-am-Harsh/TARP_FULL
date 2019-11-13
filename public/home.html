@@ -101,17 +101,17 @@
             <h2 class="my-4 heading  text-center">Add Cars</h2>
             
       
-            <form method="POST">
+            <form method="POST" action="/sendCar">
                 <p class="row">
                     Enter the number of your car
-                    <input type = 'text'  class="form-control border-secondary text-white bg-transparent" id='plateNum' placeholder="Plate number" required>
+                    <input type = 'text'  class="form-control border-secondary text-white bg-transparent" id='plateNum' name="plateNum" placeholder="Plate number" required>
                 </p>
                 <p class="row">
                         Enter the name of your car
-                        <input type = 'text'  class="form-control border-secondary text-white bg-transparent" id = "carName" placeholder="Any name" required>
+                        <input type = 'text'  class="form-control border-secondary text-white bg-transparent" id = "carName" name="carName" placeholder="Any name" required>
                     </p>
                 <p class="row">
-                    <input type="submit" value="Add" class="btn btn-primary text-white" id = 'button-addon2' onclick="addCar()">
+                    <input type="submit" value="Add" class="btn btn-primary text-white" id = 'button-addon2'>
                 </p>
             </form>
           </div>
@@ -123,17 +123,17 @@
             </div>
             <h2 class="my-4 heading">Active Cars</h2>
             <div>
-                <table  class="text-center" id = table style="display: none;">
-                    <th>
-                        Car Name
-                    </th>
-                    <th>
-                        Plate Number
-                    </th>
-                    <th>
-                        Amount 
-                    </th>
-                </table>
+              <table  class="text-center" id = table style="display: none;">
+                  <th>
+                      Car Name
+                  </th>
+                  <th>
+                      Plate Number
+                  </th>
+                  <th>
+                      Amount 
+                  </th>
+            </table>
             </div>
             <p class="row" id='hide-this' style="display: block;">
                 All the added cars will be visible, here.
