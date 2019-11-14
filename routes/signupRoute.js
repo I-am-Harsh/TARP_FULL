@@ -23,7 +23,8 @@ signupRoute.route('/')
         console.log(`users created : ${req.body}`);
         res.statusCode = 200;
         res.setHeader('Content-type',"application/json");
-        res.json(user);
+        console.log(user)
+        res.redirect("./")
     }, (err) => next(err))
     .catch((err) => next(err))
     

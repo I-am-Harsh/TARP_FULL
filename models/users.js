@@ -14,6 +14,9 @@ var carNum = new Schema ({
     },
     name : {
         type : String
+    },
+    price : {
+        type : Number
     }
 });
 

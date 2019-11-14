@@ -8,16 +8,8 @@ const alert = require('alert-node');
 const sendCarRoute = express.Router();
 sendCarRoute.use(body.json());
 
-
-
-// var ObjectId = require('mongodb').ObjectId; 
-// var id = userId;       
-// var o_id = new ObjectId(id);
-
-
-
-// const loginRoute = require('./loginRoute'); 
-// var email = loginRoute.userEmail;
+// var plate = req.body.plateNum;
+// var carname = req.body.carName;
 
 sendCarRoute.route('/')
 
@@ -46,17 +38,50 @@ sendCarRoute.route('/')
     
 // })
 
+
+
+// .post((req,res) =>{
+
+//     users.findOne({'_id': `${userId}`})
+//     .then((result) =>{
+//         res.statusCode = 200;
+//         res.setHeader('Content-type',"application/json");
+//         res.send(result);
+//         // return result
+//     },
+//     // .then((result) =>{
+//     //     result.car.push({
+//     //         plateNum : plate,
+//     //         name : car 
+//     //     })
+//     //     return result.save();
+//     // },
+//      (err) => next(err))
+//     .catch((err) => next(err));
+    
+// })
+
 .post((req,res) =>{
-
-
+    var plate = req.body.plateNum;
+    var carname = req.body.carName;
     users.findOne({'_id': `${userId}`})
     .then((result) =>{
         res.statusCode = 200;
         res.setHeader('Content-type',"application/json");
+        // res.send(result);
+        result.car.push({
+            plateNum : plate,
+            name : carname,
+            
+        })
         res.send(result);
+        result.save();
     }, (err) => next(err))
     .catch((err) => next(err));  
 })
+
+
+
 
 
 .put((req,res) =>{
