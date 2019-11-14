@@ -8,6 +8,14 @@ const alert = require('alert-node');
 const sendCarRoute = express.Router();
 sendCarRoute.use(body.json());
 
+
+
+// var ObjectId = require('mongodb').ObjectId; 
+// var id = userId;       
+// var o_id = new ObjectId(id);
+
+
+
 // const loginRoute = require('./loginRoute'); 
 // var email = loginRoute.userEmail;
 
@@ -20,17 +28,36 @@ sendCarRoute.route('/')
     res.end(`The ${req.method} was executed.  This operation is not supported.`);    
 
 })
+// users.findOneAndUpdate({'_id': `${userId}`})
+// .post((req,res) =>{
 
+//     console.log(userId);
+//     console.log(req.body);
+
+//     users.findOneAndUpdate({'_id': `${userId}`})
+//     .then((result) =>{
+//         res.statusCode = 200;
+//         res.setHeader('Content-type',"application/json");
+//         res.send(result);
+        
+        
+//     }, (err) => next(err))
+//     .catch((err) => next(err));
+    
+// })
 
 .post((req,res) =>{
-    res.statusCode = 200;
-    // console.log(email);
-    console.log(userId);
-    console.log(req.body);
 
-    // users.findByIdAndUpdate()
 
+    users.findOne({'_id': `${userId}`})
+    .then((result) =>{
+        res.statusCode = 200;
+        res.setHeader('Content-type',"application/json");
+        res.send(result);
+    }, (err) => next(err))
+    .catch((err) => next(err));  
 })
+
 
 .put((req,res) =>{
     res.statusCode = 403;
