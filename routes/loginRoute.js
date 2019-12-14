@@ -24,7 +24,7 @@ loginRoute.route('/')
 })
 
 
-.post((req,res) =>{
+.post((req,res,next) =>{
 
     userEmail = req.body.email;
     userPass = req.body.password;
@@ -33,25 +33,24 @@ loginRoute.route('/')
     users.findOne({email : userEmail})
     .then((result) =>{
         res.statusCode = 200;
-        res.setHeader('Content-type',"application/json");
-        userId = result.id;
-        if(result !== null){
-        
+        res.setHeader('Content-type',"application/json");4
+        console.log(result);
+        if(result != null){
             if(result.password === userPass){
+                userId = result.id;
                 return res.redirect("./home.html");
             }
             else{
-                alert("This is the wrong password")
+                console.log("This is the wrong password");
                 return res.redirect("./");
             }
         }
         else{
-            console.log("This is the wrong email")
+            console.log("There is no user with this email");
             return res.redirect("./");
         }
     }, (err) => next(err))
     .catch((err) => next(err));
-    
 })
 
 

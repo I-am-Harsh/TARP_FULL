@@ -97,10 +97,9 @@
         <div class="col-md-4">
           <div class="free-quote bg-dark h-100">
             <h2 class="my-4 heading  text-center" id="loginHeading" style="display: none;">Login</h2>
-            <h2 class="my-4 heading  text-center" id='signupHeading'style="display: block;">Sign Up</h2>
+            <h2 class="my-4 heading  text-center" id='signupHeading'style="display: none;">Sign Up</h2>
             <!-- login form -->
-            <form id='loginform' method="POST" action="/login" style="display: none;">
-              
+            <form id='loginform' method="POST" action="/login" style="display: block;">
               <div class="form-group">
                 <label for="fq_email">Email</label>
                 <input type="email" class="form-control btn-block" id="fq_email" name="email" placeholder="Enter Email" required>
@@ -120,7 +119,7 @@
             </form>
 
             <!-- sign up form hide this div -->
-            <form id='signUpform' method="POST" action="/signup" style="display: block;">
+            <form id='signUpform' method="POST" action="/signup" style="display: none;">
               <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control btn-block" id="name" name="name" placeholder="Enter your name" required>
